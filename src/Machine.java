@@ -72,7 +72,11 @@ public class Machine {
                 totalAmtOfMilk -= 75;
                 totalAmtOfCoffeeBeans -= 20;
                 totalAmtOfCups -= 1;
-                remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans , totalAmtOfCups );
+
+                checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+                System.out.println("");
+                startMode();
+                //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans , totalAmtOfCups );
                 break;
             }
             case 3: {
@@ -81,7 +85,12 @@ public class Machine {
                 totalAmtOfMilk -= 100;
                 totalAmtOfCoffeeBeans -= 12;
                 totalAmtOfCups -= 1;
-                remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans, totalAmtOfCups );
+
+                checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+                System.out.println("");
+                startMode();
+
+                //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans, totalAmtOfCups );
                 break;
             }
             default: {
@@ -118,43 +127,17 @@ public class Machine {
 
     public static void checkAvailability(int water, int milk, int beans, int cups){
 
-        if (water == 0){
+        if (water <= 0){
             System.out.println("Sorry, not enough water");
-        }else if (milk == 0){
+        }else if (milk <= 0){
             System.out.println("Sorry, not enough milk");
-        }else if (beans == 0){
+        }else if (beans <= 0){
             System.out.println("Sorry, not enough beans");
-        }else if (cups == 0){
+        }else if (cups <= 0){
             System.out.println("Sorry, not enough cups");
         }else {
             System.out.println("I have enough resources, making you a cup of coffee!");
         }
-
-
-//
-//        if (water == 0){
-//            System.out.println("Sorry, not enough water");
-//        }else{
-//            System.out.println("I have enough resources, making you a cup of coffee!");
-//        }
-//
-//        if (milk == 0){
-//            System.out.println("Sorry, not enough milk");
-//        }else{
-//            System.out.println("I have enough resources, making you a cup of coffee!");
-//        }
-//
-//        if (beans == 0){
-//            System.out.println("Sorry, not enough beans");
-//        }else {
-//            System.out.println("I have enough resources, making you a cup of coffee!");
-//        }
-//
-//        if (cups ==0){
-//            System.out.println("Sorry, not enough cups");
-//        }else {
-//            System.out.println("I have enough resources, making you a cup of coffee!");
-//        }
     }
 
 }
