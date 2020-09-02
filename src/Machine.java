@@ -11,15 +11,11 @@ public class Machine {
 
     public static void main(String[] args){
 
-        String inputBuy = "buy";
-        String inputFill = "fill";
-        String inputTake = "take";
-        String inputRemaining = "remaining";
-        String inputExit = "exit";
-        String input;
+        startMode();
+    }
 
+    public static void startMode(){
         System.out.println("write action (buy, fill, take, remaining, exit): " );
-
         switch (scanner.next()){
             case "remaining": {
                 remaining(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups, totalAmtOfMoney);
@@ -27,11 +23,17 @@ public class Machine {
             } case "buy": {
                 System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: ");
                 buyCoffee(scanner.nextInt());
+                break;
             } case "fill": {
                 fillMachine();
-            }case
+                break;
+            } case "take": {
+                takeMoney();
+                break;
+            } case "exit" :{
+                break;
+            }
         }
-
     }
 
     public static void remaining(int money, int water, int milk, int beans, int cups){
@@ -43,6 +45,10 @@ public class Machine {
         System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
         System.out.println(totalAmtOfCups + " of disposable cups");
         System.out.println(totalAmtOfMoney + " of money");
+
+        System.out.println("");
+
+        startMode();
     }
 
     public static void buyCoffee (int type) {
@@ -98,6 +104,11 @@ public class Machine {
         totalAmtOfCups += cups;
 
         remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+    }
+
+    public static void takeMoney () {
+        System.out.println("I gave you $" + totalAmtOfMoney);
+        remaining(0, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
     }
 
 }
