@@ -59,11 +59,7 @@ public class Machine {
                 totalAmtOfCoffeeBeans -= 16;
                 totalAmtOfCups -= 1;
 
-                if (totalAmtOfWater == 0 || totalAmtOfCups == 0 || totalAmtOfCoffeeBeans ==0 ){
-                    System.out.println("I do not have enough resources to make you a cop of coffee");
-                }else {
-                    System.out.println("I have enough resources, making you a cup of coffee!");
-                }
+                checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
 
                 System.out.println("");
                 startMode();
@@ -118,6 +114,47 @@ public class Machine {
     public static void takeMoney () {
         System.out.println("I gave you $" + totalAmtOfMoney);
         remaining(0, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+    }
+
+    public static void checkAvailability(int water, int milk, int beans, int cups){
+
+        if (water == 0){
+            System.out.println("Sorry, not enough water");
+        }else if (milk == 0){
+            System.out.println("Sorry, not enough milk");
+        }else if (beans == 0){
+            System.out.println("Sorry, not enough beans");
+        }else if (cups == 0){
+            System.out.println("Sorry, not enough cups");
+        }else {
+            System.out.println("I have enough resources, making you a cup of coffee!");
+        }
+
+
+//
+//        if (water == 0){
+//            System.out.println("Sorry, not enough water");
+//        }else{
+//            System.out.println("I have enough resources, making you a cup of coffee!");
+//        }
+//
+//        if (milk == 0){
+//            System.out.println("Sorry, not enough milk");
+//        }else{
+//            System.out.println("I have enough resources, making you a cup of coffee!");
+//        }
+//
+//        if (beans == 0){
+//            System.out.println("Sorry, not enough beans");
+//        }else {
+//            System.out.println("I have enough resources, making you a cup of coffee!");
+//        }
+//
+//        if (cups ==0){
+//            System.out.println("Sorry, not enough cups");
+//        }else {
+//            System.out.println("I have enough resources, making you a cup of coffee!");
+//        }
     }
 
 }
