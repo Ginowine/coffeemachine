@@ -58,7 +58,16 @@ public class Machine {
                 totalAmtOfWater -= 250;
                 totalAmtOfCoffeeBeans -= 16;
                 totalAmtOfCups -= 1;
-                remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+
+                if (totalAmtOfWater == 0 || totalAmtOfCups == 0 || totalAmtOfCoffeeBeans ==0 ){
+                    System.out.println("I do not have enough resources to make you a cop of coffee");
+                }else {
+                    System.out.println("I have enough resources, making you a cup of coffee!");
+                }
+
+                System.out.println("");
+                startMode();
+                //remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 break;
             }
             case 2: {
