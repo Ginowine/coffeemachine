@@ -8,13 +8,12 @@ public class Machine {
     private static int totalAmtOfMoney = 550;
 
     private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args){
         startMode();
     }
 
     public static void startMode(){
-        System.out.println("write action (buy, fill, take, remaining, exit): " );
+        System.out.println("write action (buy, fill, take, remaining, exit):");
         switch (scanner.next()){
             case "remaining": {
                 remaining(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups, totalAmtOfMoney);
@@ -46,7 +45,6 @@ public class Machine {
         System.out.println(money + " of money");
 
         System.out.println("");
-
         startMode();
     }
 
@@ -101,7 +99,6 @@ public class Machine {
             }
         }
     }
-
     public static void fillMachine () {
         Scanner scanner = new Scanner(System.in);
 
@@ -121,7 +118,6 @@ public class Machine {
         System.out.println("");
         startMode();
     }
-
     public static void takeMoney (int amount) {
         System.out.println("I gave you $" + amount);
         totalAmtOfMoney = 0;
