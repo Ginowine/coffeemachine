@@ -22,7 +22,7 @@ public class Machine {
                 break;
             } case "buy": {
                 System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, 4 - back ");
-                buyCoffee(scanner.nextInt());
+                buyCoffee(scanner.next());
                 break;
             } case "fill": {
                 fillMachine();
@@ -39,12 +39,6 @@ public class Machine {
     public static void remaining(int water, int milk, int beans, int cups, int money){
         System.out.println("");
 
-//        totalAmtOfMoney = money;
-//        totalAmtOfWater = water;
-//        totalAmtOfMilk = milk;
-//        totalAmtOfCoffeeBeans = beans;
-//        totalAmtOfCups = cups;
-
         System.out.println("The coffee machine has:");
         System.out.println(water + " of water");
         System.out.println(milk + " of milk");
@@ -57,22 +51,22 @@ public class Machine {
         startMode();
     }
 
-    public static void buyCoffee (int type) {
+    public static void buyCoffee (String type) {
         switch (type) {
-            case 1: {
+            case "1": {
                 totalAmtOfWater -= 250;
                 totalAmtOfCoffeeBeans -= 16;
                 totalAmtOfCups -= 1;
                 totalAmtOfMoney += 4;
 
-                checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+                //checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
 
                 System.out.println("");
                 startMode();
                 //remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 break;
             }
-            case 2: {
+            case "2": {
                 if (totalAmtOfWater <= 350){
                     //totalAmtOfWater = 50;
                     System.out.println("Sorry, not enough water!");
@@ -91,20 +85,25 @@ public class Machine {
                 //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans , totalAmtOfCups );
                 break;
             }
-            case 3: {
-                totalAmtOfMoney += 6;
-                totalAmtOfWater -= 200;
-                totalAmtOfMilk -= 100;
-                totalAmtOfCoffeeBeans -= 12;
-                totalAmtOfCups -= 1;
+            case "3": {
+                if (totalAmtOfWater < 200){
+                    System.out.println("Sorry, not enough water!");
+                }else {
+                    System.out.println("I have enough resources, making you a cup of coffee!");
+                    totalAmtOfMoney += 6;
+                    totalAmtOfWater -= 200;
+                    totalAmtOfMilk -= 100;
+                    totalAmtOfCoffeeBeans -= 12;
+                    totalAmtOfCups -= 1;
+                }
 
-                checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
+                //checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 System.out.println("");
-
+                startMode();
                 //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans, totalAmtOfCups );
                 break;
             }
-            case 4: {
+            case "back": {
                 startMode();
             }
             default: {
@@ -112,25 +111,6 @@ public class Machine {
                 break;
             }
         }
-    }
-
-    public static void checkAvailability(int water, int milk, int beans, int cups){
-
-        if (totalAmtOfWater < 350)
-
-        if (water <= 0){
-            System.out.println("Sorry, not enough water");
-        }else if (milk <= 0){
-            System.out.println("Sorry, not enough milk");
-        }else if (beans <= 0){
-            System.out.println("Sorry, not enough beans");
-        }else if (cups <= 0){
-            System.out.println("Sorry, not enough cups");
-        }else {
-            System.out.println("I have enough resources, making you a cup of coffee!");
-        }
-
-        //startMode();
     }
 
     public static void fillMachine () {
@@ -161,5 +141,4 @@ public class Machine {
         startMode();
         //remaining(0, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
     }
-
 }
