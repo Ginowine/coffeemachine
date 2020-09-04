@@ -10,7 +10,6 @@ public class Machine {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
-
         startMode();
     }
 
@@ -59,16 +58,12 @@ public class Machine {
                 totalAmtOfCups -= 1;
                 totalAmtOfMoney += 4;
 
-                //checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
-
                 System.out.println("");
                 startMode();
-                //remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 break;
             }
             case "2": {
                 if (totalAmtOfWater <= 350){
-                    //totalAmtOfWater = 50;
                     System.out.println("Sorry, not enough water!");
                 }else {
                     System.out.println("I have enough resources, making you a cup of coffee!");
@@ -78,11 +73,8 @@ public class Machine {
                     totalAmtOfCups -= 1;
                     totalAmtOfMoney += 7;
                 }
-
-                //checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 System.out.println("");
                 startMode();
-                //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans , totalAmtOfCups );
                 break;
             }
             case "3": {
@@ -96,11 +88,8 @@ public class Machine {
                     totalAmtOfCoffeeBeans -= 12;
                     totalAmtOfCups -= 1;
                 }
-
-                //checkAvailability(totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
                 System.out.println("");
                 startMode();
-                //remaining(totalAmtOfMoney , totalAmtOfWater , totalAmtOfMilk , totalAmtOfCoffeeBeans, totalAmtOfCups );
                 break;
             }
             case "back": {
@@ -131,14 +120,11 @@ public class Machine {
 
         System.out.println("");
         startMode();
-        //remaining(totalAmtOfMoney, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
     }
 
     public static void takeMoney (int amount) {
         System.out.println("I gave you $" + amount);
-        //int zero = 0;
         totalAmtOfMoney = 0;
         startMode();
-        //remaining(0, totalAmtOfWater, totalAmtOfMilk, totalAmtOfCoffeeBeans, totalAmtOfCups);
     }
 }
